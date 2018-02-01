@@ -1,0 +1,19 @@
+to connect over bluetooth (Ubuntu):
+
+$ sudo bluetoothctl
+# power on
+# agent on
+# scan on
+# pair <mac addr 98:...>
+Ctrl-D to exit
+
+Now "mount" this BT device as a comm port:
+
+$ sudo rfcomm connect /dev/rfcomm0 98:blahblah 1 &
+
+and connect using minicom:
+
+$ sudo minicom -D /dev/rfcomm0
+
+
+
